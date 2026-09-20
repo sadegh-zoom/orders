@@ -1,0 +1,284 @@
+2026-09-18T00:50:46+00:00 INFO Email "new_order" for order #20899 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20899}
+2026-09-18T00:50:46+00:00 NOTICE Email "customer_processing_order" for order #20899 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20899}
+2026-09-18T00:50:46+00:00 NOTICE Email "customer_note" for order #20899 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20899}
+2026-09-18T04:46:03+00:00 NOTICE Email "customer_note" for order #20901 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20901}
+2026-09-18T04:47:53+00:00 INFO Email "new_order" for order #20901 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20901}
+2026-09-18T04:47:53+00:00 NOTICE Email "customer_processing_order" for order #20901 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20901}
+2026-09-18T04:47:53+00:00 NOTICE Email "customer_note" for order #20901 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20901}
+2026-09-18T04:55:17+00:00 INFO Email "cancelled_order" for order #20900 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20900}
+2026-09-18T05:20:18+00:00 NOTICE Email "customer_note" for order #20902 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20902}
+2026-09-18T05:22:55+00:00 INFO Email "new_order" for order #20902 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20902}
+2026-09-18T05:22:55+00:00 NOTICE Email "customer_processing_order" for order #20902 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20902}
+2026-09-18T05:22:55+00:00 NOTICE Email "customer_note" for order #20902 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20902}
+2026-09-18T05:27:18+00:00 NOTICE Email "customer_note" for order #20903 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20903}
+2026-09-18T05:35:36+00:00 NOTICE Email "customer_note" for order #20905 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20905}
+2026-09-18T05:53:32+00:00 NOTICE Email "customer_note" for order #20908 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20908}
+2026-09-18T05:53:37+00:00 INFO Email "cancelled_order" for order #20905 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20905}
+2026-09-18T05:59:55+00:00 NOTICE Email "customer_note" for order #20910 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20910}
+2026-09-18T06:00:16+00:00 NOTICE Email "customer_note" for order #20911 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20911}
+2026-09-18T06:00:22+00:00 INFO Email "cancelled_order" for order #20908 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20908}
+2026-09-18T06:02:39+00:00 INFO Email "new_order" for order #20911 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20911}
+2026-09-18T06:02:39+00:00 NOTICE Email "customer_processing_order" for order #20911 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20911}
+2026-09-18T06:02:39+00:00 NOTICE Email "customer_note" for order #20911 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20911}
+2026-09-18T06:26:19+00:00 INFO Email "cancelled_order" for order #20903 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20903}
+2026-09-18T06:26:24+00:00 INFO Email "cancelled_order" for order #20904 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20904}
+2026-09-18T06:26:30+00:00 INFO Email "cancelled_order" for order #20907 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20907}
+2026-09-18T06:29:13+00:00 INFO Email "cancelled_order" for order #20909 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20909}
+2026-09-18T06:33:47+00:00 NOTICE Email "customer_note" for order #20914 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20914}
+2026-09-18T06:56:08+00:00 NOTICE Email "customer_note" for order #20915 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20915}
+2026-09-18T06:57:22+00:00 INFO Email "cancelled_order" for order #20910 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20910}
+2026-09-18T06:57:28+00:00 INFO Email "cancelled_order" for order #20912 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20912}
+2026-09-18T06:57:33+00:00 INFO Email "cancelled_order" for order #20913 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20913}
+2026-09-18T07:00:11+00:00 INFO Email "new_order" for order #20915 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20915}
+2026-09-18T07:00:11+00:00 NOTICE Email "customer_processing_order" for order #20915 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20915}
+2026-09-18T07:00:11+00:00 NOTICE Email "customer_note" for order #20915 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20915}
+2026-09-18T07:08:27+00:00 NOTICE Email "customer_note" for order #20916 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20916}
+2026-09-18T07:14:08+00:00 NOTICE Email "customer_note" for order #20917 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20917}
+2026-09-18T07:27:17+00:00 INFO Email "cancelled_order" for order #20914 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20914}
+2026-09-18T07:29:13+00:00 INFO Email "cancelled_order" for order #20917 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20917}
+2026-09-18T07:57:20+00:00 INFO Email "cancelled_order" for order #20916 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20916}
+2026-09-18T07:57:25+00:00 INFO Email "cancelled_order" for order #20918 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20918}
+2026-09-18T07:57:30+00:00 INFO Email "cancelled_order" for order #20919 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20919}
+2026-09-18T08:35:09+00:00 NOTICE Email "customer_note" for order #20920 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20920}
+2026-09-18T08:36:31+00:00 INFO Email "new_order" for order #20920 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20920}
+2026-09-18T08:36:31+00:00 NOTICE Email "customer_processing_order" for order #20920 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20920}
+2026-09-18T08:36:31+00:00 NOTICE Email "customer_note" for order #20920 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20920}
+2026-09-18T08:41:48+00:00 NOTICE Email "customer_note" for order #20921 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20921}
+2026-09-18T08:44:26+00:00 NOTICE Email "customer_note" for order #20922 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20922}
+2026-09-18T08:46:55+00:00 INFO Email "new_order" for order #20922 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20922}
+2026-09-18T08:46:55+00:00 NOTICE Email "customer_processing_order" for order #20922 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20922}
+2026-09-18T08:46:55+00:00 NOTICE Email "customer_note" for order #20922 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20922}
+2026-09-18T08:50:18+00:00 NOTICE Email "customer_note" for order #20923 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20923}
+2026-09-18T08:50:22+00:00 INFO Email "cancelled_order" for order #20921 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20921}
+2026-09-18T08:58:50+00:00 INFO Email "new_order" for order #20924 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20924}
+2026-09-18T08:58:50+00:00 NOTICE Email "customer_processing_order" for order #20924 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20924}
+2026-09-18T09:14:28+00:00 NOTICE Email "customer_note" for order #20925 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20925}
+2026-09-18T09:25:32+00:00 NOTICE Email "customer_note" for order #20926 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20926}
+2026-09-18T09:26:22+00:00 INFO Email "new_order" for order #20925 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20925}
+2026-09-18T09:26:22+00:00 NOTICE Email "customer_processing_order" for order #20925 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20925}
+2026-09-18T09:27:39+00:00 NOTICE Email "customer_note" for order #20925 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20925}
+2026-09-18T09:29:13+00:00 INFO Email "cancelled_order" for order #20923 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20923}
+2026-09-18T09:51:49+00:00 NOTICE Email "customer_note" for order #20927 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20927}
+2026-09-18T09:53:54+00:00 NOTICE Email "customer_note" for order #20928 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20928}
+2026-09-18T09:59:17+00:00 INFO Email "cancelled_order" for order #20926 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20926}
+2026-09-18T09:59:44+00:00 NOTICE Email "customer_note" for order #20929 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20929}
+2026-09-18T10:13:15+00:00 NOTICE Email "customer_note" for order #20930 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20930}
+2026-09-18T10:13:53+00:00 NOTICE Email "customer_note" for order #20930 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20930}
+2026-09-18T10:16:39+00:00 NOTICE Email "customer_note" for order #20932 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20932}
+2026-09-18T10:16:44+00:00 INFO Email "cancelled_order" for order #20930 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20930}
+2026-09-18T10:19:24+00:00 INFO Email "new_order" for order #20932 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20932}
+2026-09-18T10:19:24+00:00 NOTICE Email "customer_processing_order" for order #20932 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20932}
+2026-09-18T10:19:24+00:00 NOTICE Email "customer_note" for order #20932 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20932}
+2026-09-18T10:24:13+00:00 INFO Email "new_order" for order #20933 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20933}
+2026-09-18T10:24:13+00:00 NOTICE Email "customer_processing_order" for order #20933 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20933}
+2026-09-18T10:29:13+00:00 INFO Email "cancelled_order" for order #20931 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20931}
+2026-09-18T10:29:29+00:00 INFO Email "cancelled_order" for order #20927 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20927}
+2026-09-18T10:29:34+00:00 INFO Email "cancelled_order" for order #20928 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20928}
+2026-09-18T10:48:19+00:00 NOTICE Email "customer_note" for order #20936 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20936}
+2026-09-18T10:54:25+00:00 NOTICE Email "customer_note" for order #20937 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20937}
+2026-09-18T10:55:31+00:00 INFO Email "new_order" for order #20937 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20937}
+2026-09-18T10:55:31+00:00 NOTICE Email "customer_processing_order" for order #20937 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20937}
+2026-09-18T10:55:31+00:00 NOTICE Email "customer_note" for order #20937 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20937}
+2026-09-18T10:55:58+00:00 NOTICE Email "customer_note" for order #20938 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20938}
+2026-09-18T10:58:50+00:00 NOTICE Email "customer_note" for order #20939 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20939}
+2026-09-18T11:00:17+00:00 INFO Email "cancelled_order" for order #20929 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20929}
+2026-09-18T11:01:09+00:00 INFO Email "new_order" for order #20939 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20939}
+2026-09-18T11:01:09+00:00 NOTICE Email "customer_processing_order" for order #20939 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20939}
+2026-09-18T11:01:09+00:00 NOTICE Email "customer_note" for order #20939 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20939}
+2026-09-18T11:12:21+00:00 NOTICE Email "customer_note" for order #20940 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20940}
+2026-09-18T11:13:25+00:00 INFO Email "new_order" for order #20940 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20940}
+2026-09-18T11:13:25+00:00 NOTICE Email "customer_processing_order" for order #20940 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20940}
+2026-09-18T11:13:25+00:00 NOTICE Email "customer_note" for order #20940 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20940}
+2026-09-18T11:13:47+00:00 NOTICE Email "customer_note" for order #20941 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20941}
+2026-09-18T11:16:37+00:00 INFO Email "new_order" for order #20941 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20941}
+2026-09-18T11:16:37+00:00 NOTICE Email "customer_processing_order" for order #20941 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20941}
+2026-09-18T11:16:37+00:00 NOTICE Email "customer_note" for order #20941 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20941}
+2026-09-18T11:30:22+00:00 INFO Email "cancelled_order" for order #20934 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20934}
+2026-09-18T11:30:28+00:00 INFO Email "cancelled_order" for order #20935 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20935}
+2026-09-18T11:30:33+00:00 INFO Email "cancelled_order" for order #20936 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20936}
+2026-09-18T11:30:38+00:00 INFO Email "cancelled_order" for order #20938 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20938}
+2026-09-18T11:30:39+00:00 NOTICE Email "customer_note" for order #20942 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20942}
+2026-09-18T11:39:33+00:00 NOTICE Email "customer_note" for order #20943 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20943}
+2026-09-18T11:40:20+00:00 NOTICE Email "customer_note" for order #20942 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20942}
+2026-09-18T11:40:53+00:00 INFO Email "new_order" for order #20943 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20943}
+2026-09-18T11:40:53+00:00 NOTICE Email "customer_processing_order" for order #20943 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20943}
+2026-09-18T11:40:53+00:00 NOTICE Email "customer_note" for order #20943 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20943}
+2026-09-18T11:41:05+00:00 INFO Email "cancelled_order" for order #20942 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20942}
+2026-09-18T11:41:56+00:00 INFO Email "cancelled_order" for order #20944 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20944}
+2026-09-18T11:42:29+00:00 NOTICE Email "customer_note" for order #20945 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20945}
+2026-09-18T12:10:33+00:00 NOTICE Email "customer_note" for order #20947 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20947}
+2026-09-18T12:14:39+00:00 NOTICE Email "customer_note" for order #20949 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20949}
+2026-09-18T12:14:58+00:00 NOTICE Email "customer_note" for order #20949 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20949}
+2026-09-18T12:15:00+00:00 NOTICE Email "customer_note" for order #20948 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20948}
+2026-09-18T12:15:27+00:00 INFO Email "new_order" for order #20948 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20948}
+2026-09-18T12:15:27+00:00 NOTICE Email "customer_processing_order" for order #20948 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20948}
+2026-09-18T12:15:27+00:00 NOTICE Email "customer_note" for order #20948 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20948}
+2026-09-18T12:15:36+00:00 NOTICE Email "customer_note" for order #20950 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20950}
+2026-09-18T12:15:41+00:00 INFO Email "cancelled_order" for order #20949 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20949}
+2026-09-18T12:16:11+00:00 NOTICE Email "customer_note" for order #20950 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20950}
+2026-09-18T12:16:27+00:00 NOTICE Email "customer_note" for order #20950 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20950}
+2026-09-18T12:18:03+00:00 INFO Email "new_order" for order #20950 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20950}
+2026-09-18T12:18:03+00:00 NOTICE Email "customer_processing_order" for order #20950 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20950}
+2026-09-18T12:18:03+00:00 NOTICE Email "customer_note" for order #20950 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20950}
+2026-09-18T12:19:07+00:00 NOTICE Email "customer_note" for order #20949 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20949}
+2026-09-18T12:21:30+00:00 INFO Email "new_order" for order #20951 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20951}
+2026-09-18T12:21:30+00:00 NOTICE Email "customer_processing_order" for order #20951 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20951}
+2026-09-18T12:27:53+00:00 NOTICE Email "customer_note" for order #20952 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20952}
+2026-09-18T12:31:06+00:00 INFO Email "cancelled_order" for order #20945 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20945}
+2026-09-18T12:31:11+00:00 INFO Email "cancelled_order" for order #20946 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20946}
+2026-09-18T12:33:37+00:00 NOTICE Email "customer_note" for order #20953 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20953}
+2026-09-18T12:35:07+00:00 NOTICE Email "customer_note" for order #20955 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20955}
+2026-09-18T12:36:40+00:00 INFO Email "new_order" for order #20952 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20952}
+2026-09-18T12:36:40+00:00 NOTICE Email "customer_processing_order" for order #20952 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20952}
+2026-09-18T12:36:40+00:00 NOTICE Email "customer_note" for order #20952 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20952}
+2026-09-18T12:36:57+00:00 NOTICE Email "customer_note" for order #20956 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20956}
+2026-09-18T12:39:27+00:00 INFO Email "new_order" for order #20956 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20956}
+2026-09-18T12:39:27+00:00 NOTICE Email "customer_processing_order" for order #20956 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20956}
+2026-09-18T12:39:27+00:00 NOTICE Email "customer_note" for order #20956 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20956}
+2026-09-18T12:39:29+00:00 NOTICE Email "customer_note" for order #20958 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20958}
+2026-09-18T12:40:43+00:00 INFO Email "new_order" for order #20955 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20955}
+2026-09-18T12:40:43+00:00 NOTICE Email "customer_processing_order" for order #20955 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20955}
+2026-09-18T12:40:43+00:00 NOTICE Email "customer_note" for order #20955 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20955}
+2026-09-18T12:41:23+00:00 NOTICE Email "customer_note" for order #20959 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20959}
+2026-09-18T12:45:16+00:00 NOTICE Email "customer_note" for order #20960 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20960}
+2026-09-18T12:45:21+00:00 INFO Email "cancelled_order" for order #20958 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20958}
+2026-09-18T12:45:55+00:00 NOTICE Email "customer_note" for order #20961 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20961}
+2026-09-18T13:01:18+00:00 INFO Email "cancelled_order" for order #20947 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20947}
+2026-09-18T13:31:25+00:00 INFO Email "cancelled_order" for order #20953 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20953}
+2026-09-18T13:31:30+00:00 INFO Email "cancelled_order" for order #20954 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20954}
+2026-09-18T13:31:35+00:00 INFO Email "cancelled_order" for order #20957 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20957}
+2026-09-18T13:31:40+00:00 INFO Email "cancelled_order" for order #20959 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20959}
+2026-09-18T13:31:45+00:00 INFO Email "cancelled_order" for order #20960 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20960}
+2026-09-18T13:31:49+00:00 INFO Email "cancelled_order" for order #20961 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20961}
+2026-09-18T13:43:15+00:00 NOTICE Email "customer_note" for order #20962 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20962}
+2026-09-18T13:46:06+00:00 INFO Email "new_order" for order #20962 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20962}
+2026-09-18T13:46:06+00:00 NOTICE Email "customer_processing_order" for order #20962 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20962}
+2026-09-18T13:46:06+00:00 NOTICE Email "customer_note" for order #20962 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20962}
+2026-09-18T13:53:04+00:00 NOTICE Email "customer_note" for order #20964 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20964}
+2026-09-18T13:54:27+00:00 INFO Email "new_order" for order #20963 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20963}
+2026-09-18T13:54:27+00:00 NOTICE Email "customer_processing_order" for order #20963 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20963}
+2026-09-18T13:55:37+00:00 INFO Email "new_order" for order #20964 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20964}
+2026-09-18T13:55:37+00:00 NOTICE Email "customer_processing_order" for order #20964 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20964}
+2026-09-18T13:55:37+00:00 NOTICE Email "customer_note" for order #20964 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20964}
+2026-09-18T14:02:13+00:00 NOTICE Email "customer_note" for order #20965 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20965}
+2026-09-18T14:04:13+00:00 NOTICE Email "customer_note" for order #20966 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20966}
+2026-09-18T14:04:18+00:00 INFO Email "cancelled_order" for order #20965 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20965}
+2026-09-18T14:31:11+00:00 INFO Email "cancelled_order" for order #20969 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20969}
+2026-09-18T14:46:36+00:00 INFO Email "cancelled_order" for order #20970 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20970}
+2026-09-18T15:00:37+00:00 NOTICE Email "customer_note" for order #20972 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20972}
+2026-09-18T15:01:12+00:00 INFO Email "cancelled_order" for order #20971 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20971}
+2026-09-18T15:02:02+00:00 INFO Email "cancelled_order" for order #20966 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20966}
+2026-09-18T15:02:07+00:00 INFO Email "cancelled_order" for order #20967 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20967}
+2026-09-18T15:02:12+00:00 INFO Email "cancelled_order" for order #20968 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20968}
+2026-09-18T15:12:08+00:00 NOTICE Email "customer_note" for order #20974 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20974}
+2026-09-18T15:15:32+00:00 INFO Email "new_order" for order #20974 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20974}
+2026-09-18T15:15:32+00:00 NOTICE Email "customer_processing_order" for order #20974 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20974}
+2026-09-18T15:15:32+00:00 NOTICE Email "customer_note" for order #20974 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20974}
+2026-09-18T15:15:49+00:00 NOTICE Email "customer_note" for order #20975 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20975}
+2026-09-18T15:18:34+00:00 NOTICE Email "customer_note" for order #20976 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20976}
+2026-09-18T15:19:55+00:00 INFO Email "new_order" for order #20976 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20976}
+2026-09-18T15:19:55+00:00 NOTICE Email "customer_processing_order" for order #20976 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20976}
+2026-09-18T15:19:55+00:00 NOTICE Email "customer_note" for order #20976 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20976}
+2026-09-18T15:32:18+00:00 INFO Email "cancelled_order" for order #20972 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20972}
+2026-09-18T15:32:24+00:00 INFO Email "cancelled_order" for order #20973 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20973}
+2026-09-18T15:47:50+00:00 NOTICE Email "customer_note" for order #20978 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20978}
+2026-09-18T16:02:22+00:00 INFO Email "new_order" for order #20979 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20979}
+2026-09-18T16:02:22+00:00 NOTICE Email "customer_processing_order" for order #20979 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20979}
+2026-09-18T16:02:29+00:00 NOTICE Email "customer_note" for order #20980 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20980}
+2026-09-18T16:03:25+00:00 INFO Email "cancelled_order" for order #20975 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20975}
+2026-09-18T16:05:52+00:00 INFO Email "new_order" for order #20980 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20980}
+2026-09-18T16:05:52+00:00 NOTICE Email "customer_processing_order" for order #20980 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20980}
+2026-09-18T16:05:52+00:00 NOTICE Email "customer_note" for order #20980 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20980}
+2026-09-18T16:15:12+00:00 INFO Email "new_order" for order #20981 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20981}
+2026-09-18T16:15:12+00:00 NOTICE Email "customer_processing_order" for order #20981 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20981}
+2026-09-18T16:16:06+00:00 NOTICE Email "customer_note" for order #20982 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20982}
+2026-09-18T16:18:32+00:00 INFO Email "new_order" for order #20982 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20982}
+2026-09-18T16:18:32+00:00 NOTICE Email "customer_processing_order" for order #20982 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20982}
+2026-09-18T16:18:32+00:00 NOTICE Email "customer_note" for order #20982 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20982}
+2026-09-18T16:21:43+00:00 NOTICE Email "customer_note" for order #20983 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20983}
+2026-09-18T16:24:19+00:00 INFO Email "new_order" for order #20983 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20983}
+2026-09-18T16:24:19+00:00 NOTICE Email "customer_processing_order" for order #20983 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20983}
+2026-09-18T16:24:19+00:00 NOTICE Email "customer_note" for order #20983 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20983}
+2026-09-18T16:31:00+00:00 INFO Email "new_order" for order #20984 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20984}
+2026-09-18T16:31:00+00:00 NOTICE Email "customer_processing_order" for order #20984 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20984}
+2026-09-18T16:32:51+00:00 NOTICE Email "customer_note" for order #20987 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20987}
+2026-09-18T16:33:19+00:00 INFO Email "cancelled_order" for order #20977 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20977}
+2026-09-18T16:33:23+00:00 INFO Email "cancelled_order" for order #20978 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20978}
+2026-09-18T16:34:07+00:00 INFO Email "new_order" for order #20986 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20986}
+2026-09-18T16:34:07+00:00 NOTICE Email "customer_processing_order" for order #20986 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20986}
+2026-09-18T16:35:43+00:00 INFO Email "new_order" for order #20987 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20987}
+2026-09-18T16:35:43+00:00 NOTICE Email "customer_processing_order" for order #20987 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20987}
+2026-09-18T16:35:43+00:00 NOTICE Email "customer_note" for order #20987 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20987}
+2026-09-18T16:36:19+00:00 NOTICE Email "customer_note" for order #20988 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20988}
+2026-09-18T16:38:38+00:00 INFO Email "new_order" for order #20988 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20988}
+2026-09-18T16:38:38+00:00 NOTICE Email "customer_processing_order" for order #20988 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20988}
+2026-09-18T16:38:38+00:00 NOTICE Email "customer_note" for order #20988 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20988}
+2026-09-18T16:50:40+00:00 NOTICE Email "customer_note" for order #20991 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20991}
+2026-09-18T16:52:54+00:00 INFO Email "new_order" for order #20991 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20991}
+2026-09-18T16:52:54+00:00 NOTICE Email "customer_processing_order" for order #20991 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20991}
+2026-09-18T16:52:54+00:00 NOTICE Email "customer_note" for order #20991 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20991}
+2026-09-18T16:59:37+00:00 NOTICE Email "customer_note" for order #20992 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20992}
+2026-09-18T17:00:45+00:00 NOTICE Email "customer_note" for order #20993 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20993}
+2026-09-18T17:02:13+00:00 INFO Email "cancelled_order" for order #20985 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20985}
+2026-09-18T17:03:08+00:00 INFO Email "new_order" for order #20993 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20993}
+2026-09-18T17:03:08+00:00 NOTICE Email "customer_processing_order" for order #20993 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20993}
+2026-09-18T17:03:08+00:00 NOTICE Email "customer_note" for order #20993 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20993}
+2026-09-18T17:04:09+00:00 NOTICE Email "customer_note" for order #20994 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20994}
+2026-09-18T17:13:50+00:00 INFO Email "new_order" for order #20995 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20995}
+2026-09-18T17:13:50+00:00 NOTICE Email "customer_processing_order" for order #20995 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20995}
+2026-09-18T17:13:50+00:00 NOTICE Email "customer_note" for order #20995 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20995}
+2026-09-18T17:20:25+00:00 NOTICE Email "customer_note" for order #20996 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20996}
+2026-09-18T17:22:46+00:00 NOTICE Email "customer_note" for order #20997 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20997}
+2026-09-18T17:26:18+00:00 NOTICE Email "customer_note" for order #20998 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20998}
+2026-09-18T17:27:32+00:00 INFO Email "new_order" for order #20998 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20998}
+2026-09-18T17:27:32+00:00 NOTICE Email "customer_processing_order" for order #20998 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20998}
+2026-09-18T17:27:32+00:00 NOTICE Email "customer_note" for order #20998 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":20998}
+2026-09-18T17:34:32+00:00 INFO Email "cancelled_order" for order #20989 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20989}
+2026-09-18T17:34:37+00:00 INFO Email "cancelled_order" for order #20990 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20990}
+2026-09-18T17:34:42+00:00 INFO Email "cancelled_order" for order #20992 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20992}
+2026-09-18T17:35:01+00:00 INFO Email "new_order" for order #20999 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":20999}
+2026-09-18T17:35:01+00:00 NOTICE Email "customer_processing_order" for order #20999 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":20999}
+2026-09-18T17:36:41+00:00 NOTICE Email "customer_note" for order #21000 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21000}
+2026-09-18T17:39:09+00:00 INFO Email "new_order" for order #21000 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":21000}
+2026-09-18T17:39:09+00:00 NOTICE Email "customer_processing_order" for order #21000 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":21000}
+2026-09-18T17:39:09+00:00 NOTICE Email "customer_note" for order #21000 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21000}
+2026-09-18T17:43:06+00:00 NOTICE Email "customer_note" for order #21001 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21001}
+2026-09-18T17:44:51+00:00 NOTICE Email "customer_note" for order #21003 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21003}
+2026-09-18T17:47:29+00:00 INFO Email "new_order" for order #21003 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":21003}
+2026-09-18T17:47:29+00:00 NOTICE Email "customer_processing_order" for order #21003 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":21003}
+2026-09-18T17:47:29+00:00 NOTICE Email "customer_note" for order #21003 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21003}
+2026-09-18T18:04:19+00:00 INFO Email "cancelled_order" for order #20994 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20994}
+2026-09-18T18:04:24+00:00 INFO Email "cancelled_order" for order #20996 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20996}
+2026-09-18T18:04:30+00:00 INFO Email "cancelled_order" for order #20997 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":20997}
+2026-09-18T18:05:26+00:00 NOTICE Email "customer_note" for order #21004 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21004}
+2026-09-18T18:35:20+00:00 INFO Email "cancelled_order" for order #21001 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21001}
+2026-09-18T18:35:24+00:00 INFO Email "cancelled_order" for order #21002 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21002}
+2026-09-18T19:05:48+00:00 INFO Email "cancelled_order" for order #21004 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21004}
+2026-09-18T19:10:00+00:00 INFO Email "new_order" for order #21011 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":21011}
+2026-09-18T19:10:00+00:00 NOTICE Email "customer_processing_order" for order #21011 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":21011}
+2026-09-18T19:19:14+00:00 INFO Email "cancelled_order" for order #21005 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21005}
+2026-09-18T19:19:19+00:00 INFO Email "cancelled_order" for order #21006 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21006}
+2026-09-18T19:19:24+00:00 INFO Email "cancelled_order" for order #21007 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21007}
+2026-09-18T19:19:29+00:00 INFO Email "cancelled_order" for order #21008 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21008}
+2026-09-18T19:19:34+00:00 INFO Email "cancelled_order" for order #21009 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21009}
+2026-09-18T19:19:39+00:00 INFO Email "cancelled_order" for order #21010 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21010}
+2026-09-18T20:02:48+00:00 INFO Email "new_order" for order #21013 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":21013}
+2026-09-18T20:02:48+00:00 NOTICE Email "customer_processing_order" for order #21013 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":21013}
+2026-09-18T20:04:08+00:00 NOTICE Email "customer_note" for order #21014 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21014}
+2026-09-18T20:04:08+00:00 NOTICE Email "customer_note" for order #21015 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21015}
+2026-09-18T20:19:11+00:00 INFO Email "cancelled_order" for order #21012 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21012}
+2026-09-18T20:19:16+00:00 INFO Email "cancelled_order" for order #21014 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21014}
+2026-09-18T20:19:21+00:00 INFO Email "cancelled_order" for order #21015 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21015}
+2026-09-18T20:19:21+00:00 NOTICE Email "customer_note" for order #21016 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21016}
+2026-09-18T20:34:12+00:00 INFO Email "cancelled_order" for order #21016 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21016}
+2026-09-18T20:49:12+00:00 INFO Email "cancelled_order" for order #21017 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21017}
+2026-09-18T21:51:13+00:00 INFO Email "cancelled_order" for order #21018 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21018}
+2026-09-18T21:59:06+00:00 INFO Email "new_order" for order #21020 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":21020}
+2026-09-18T21:59:06+00:00 NOTICE Email "customer_processing_order" for order #21020 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":21020}
+2026-09-18T22:05:23+00:00 NOTICE Email "customer_note" for order #21021 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"guest","order":21021}
+2026-09-18T22:31:34+00:00 NOTICE Email "customer_note" for order #21022 not sent: email type is disabled CONTEXT: {"email_type":"customer_note","status":"disabled","recipient":"saeedzamani","order":21022}
+2026-09-18T22:38:55+00:00 INFO Email "cancelled_order" for order #21019 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21019}
+2026-09-18T22:39:00+00:00 INFO Email "cancelled_order" for order #21021 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21021}
+2026-09-18T23:09:17+00:00 INFO Email "cancelled_order" for order #21022 sent CONTEXT: {"email_type":"cancelled_order","status":"sent","recipient":"guest","order":21022}
+2026-09-18T23:16:37+00:00 INFO Email "new_order" for order #21023 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"guest","order":21023}
+2026-09-18T23:16:37+00:00 NOTICE Email "customer_processing_order" for order #21023 not sent: email type is disabled CONTEXT: {"email_type":"customer_processing_order","status":"disabled","recipient":"guest","order":21023}

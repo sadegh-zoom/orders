@@ -1,0 +1,20 @@
+/* Physical page sizes, shared by both store invoice templates. */
+.cco-print-invoice main{width:148mm;padding:4mm;min-height:0}
+.cco-print-label main{width:210mm;padding:4mm;min-height:0}
+.cco-pars-invoice,.cco-pars-label{width:100%;min-height:0;padding:0}
+.cco-pars-invoice{font-size:10pt}
+.cco-pars-invoice .tab-order .tab-main span{font-size:9pt;line-height:1.6}
+.cco-pars-invoice .tab-order .tab-head{font-size:10pt}
+.cco-pars-invoice .order-dates .head-dates>th,.cco-pars-invoice .order-dates .head-dates>td{font-size:9pt;line-height:1.55}
+.cco-pars-invoice .factor-dates>span,.cco-pars-invoice .factor-thanks{font-size:9pt}
+.cco-pars-invoice table{table-layout:fixed}
+.cco-pars-invoice td,.cco-pars-invoice th{overflow-wrap:anywhere}
+@media print{
+  @page{margin:4mm}
+  html,body,body.cco-print,body.cco-print main{width:auto!important;max-width:none!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important}
+  body.cco-print .cco-print-page{width:100%!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;overflow:visible!important;break-inside:auto;page-break-inside:auto;break-after:page;page-break-after:always}
+  body.cco-print .cco-print-page:last-child{break-after:auto;page-break-after:auto}
+  .cco-pars-page tr,.cco-pars-page .header-factor,.cco-pars-page .order-label{break-inside:avoid;page-break-inside:avoid}
+  .cco-pars-label .order-label{max-height:none!important}
+  .cco-print-toolbar{display:none!important}
+}
