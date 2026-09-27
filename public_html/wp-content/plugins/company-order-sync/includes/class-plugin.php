@@ -9,11 +9,16 @@ final class Company_Order_Sync_Plugin {
 	private static $instance;
 
 	public static function init() {
+		Company_Order_Sync_Environment_Guard::hooks();
 		add_action( 'before_woocommerce_init', array( __CLASS__, 'declare_hpos_compatibility' ) );
 		add_action( 'plugins_loaded', array( __CLASS__, 'boot' ) );
 	}
 
 	public static function activate() {
+		if ( Company_Order_Sync_Environment_Guard::blocked() ) {
+			return;
+		}
+		Company_Order_Sync_Replay_Store::install();
 		self::schedule_cleanup();
 	}
 
@@ -35,6 +40,11 @@ final class Company_Order_Sync_Plugin {
 	}
 
 	public static function boot() {
+		// Do not bind workers, shutdown pushes, admin mutations or REST handlers
+		// on a cloned installation. Existing queued actions have no sync callbacks.
+		if ( Company_Order_Sync_Environment_Guard::blocked() ) {
+			return;
+		}
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			add_action( 'admin_notices', array( __CLASS__, 'woocommerce_missing_notice' ) );
 			return;

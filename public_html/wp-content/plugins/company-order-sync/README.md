@@ -1,4 +1,24 @@
-# Company Order Sync 0.13.15
+# Company Order Sync 0.13.19
+
+## محافظ محیط غیرعملیاتی در 0.13.19
+
+- محیط از `wp_get_environment_type()` همان نصب خوانده می‌شود؛ فقط `production` اجازه سینک دارد. محیط‌های `staging`، `development` و `local` مسدودند.
+- هیچ مسدودسازی براساس دامنه مشترک انجام نمی‌شود. نصب اصلی `zoombazar.com` با محیط production مستقل از نصب `zoombazar.com/stg-zb1/` با محیط staging کار می‌کند.
+- در محیط غیرعملیاتی، Hookهای ارسال، Workerها، ابزارهای تغییردهنده سینک، Snapshot، Repair، Rebuild و نگهداری فعال نمی‌شوند؛ فعال‌سازی افزونه هم جدول یا زمان‌بندی سینک ایجاد نمی‌کند.
+- REST اختصاصی سینک با خطای `company_sync_environment_blocked` و کد 403 رد می‌شود. درخواست‌های خروجی WordPress HTTP به API سینک نیز مسدود می‌شوند؛ APIهای نامرتبط دست‌نخورده‌اند.
+- در مدیریت WooCommerce پیام غیرفعال‌بودن سینک نمایش داده می‌شود. صف و داده‌های قبلی حذف نمی‌شوند؛ در محیط غیرعملیاتی callback سینک برای اجرای آن‌ها ثبت نمی‌شود.
+- این محافظ باید روی نصب staging هم نصب شود؛ به‌روزرسانی Central به‌تنهایی جلوی Connector قدیمی staging را نمی‌گیرد. پردازش PHP که پیش از استقرار شروع شده، نسخه قبلی را تا پایان اجرای خود نگه می‌دارد.
+- قبل از استقرار روی سایت اصلی، مقدار مؤثر محیط آن باید production باشد. وجود `WP_ENVIRONMENT_TYPE` در فایل مشترک می‌تواند بیش از یک نصب را تحت تأثیر قرار دهد؛ تنظیم محیط باید مختص هر نصب باشد.
+- این نسخه عمداً امکان اتصال آزمایشی را باز نمی‌کند و جایگزین جداسازی کلیدهای اصلی و staging نیست.
+
+آزمون‌های ایزوله بدون شبکه/دیتابیس از ریشه مخزن:
+
+```sh
+php tests/environment-guard.php production
+php tests/environment-guard.php staging
+php tests/environment-guard.php development
+php tests/environment-guard.php local
+```
 
 
 ## همسان‌سازی نهایی وضعیت‌ها در 0.13.15
