@@ -77,6 +77,13 @@ final class Company_Central_Orders_Admin_Page {
 				COMPANY_CENTRAL_ORDERS_VERSION,
 				true
 			);
+			wp_enqueue_script(
+				'company-central-orders-reports-nav',
+				plugins_url( 'assets/reports-nav.js', COMPANY_CENTRAL_ORDERS_FILE ),
+				array( 'company-central-orders-app' ),
+				COMPANY_CENTRAL_ORDERS_VERSION,
+				true
+			);
 			wp_localize_script(
 				'company-central-orders-app',
 				'CCO_APP_CONFIG',

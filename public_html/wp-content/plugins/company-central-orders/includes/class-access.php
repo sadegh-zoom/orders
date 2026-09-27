@@ -9,6 +9,7 @@ final class Company_Central_Orders_Access {
 	const ROLE      = 'company_order_operator';
 	const CAP       = 'company_manage_orders';
 	const RETRY_CAP = 'company_retry_order_sync';
+	const REPORTS_CAP = 'company_view_order_reports';
 	const COMPANY_ROLES = array( 'administrator', 'acc_manager', 'digikala_admin', 'logistics', 'seller', 'shop_manager', 'customer_support' );
 
 	public static function activate() {
@@ -53,8 +54,56 @@ final class Company_Central_Orders_Access {
 		if ( array_intersect( array( 'administrator', 'shop_manager' ), $roles ) ) {
 			$allcaps[ self::RETRY_CAP ] = true;
 		}
-
 		return $allcaps;
+	}
+
+	public static function render_reports_access_field( $user ) {
+		if ( ! current_user_can( 'manage_options' ) || ! $user instanceof WP_User ) {
+			return;
+		}
+		$always_allowed = (bool) array_intersect( array( 'administrator', 'acc_manager', 'shop_manager' ), (array) $user->roles );
+		?>
+		<h2>دسترسی گزارش‌های سفارش</h2>
+		<table class="form-table" role="presentation">
+			<tr>
+				<th><label for="company_view_order_reports">مشاهده گزارش‌ها</label></th>
+				<td>
+					<label>
+						<input type="checkbox" id="company_view_order_reports" name="company_view_order_reports" value="1" <?php checked( $always_allowed || $user->has_cap( self::REPORTS_CAP ) ); ?> <?php disabled( $always_allowed ); ?>>
+						اجازه مشاهده داشبورد و داده‌های گزارش سفارش
+					</label>
+					<?php if ( $always_allowed ) : ?>
+						<p class="description">این دسترسی برای نقش مدیر، مدیر فروشگاه و حسابداری به‌صورت پیش‌فرض فعال است.</p>
+					<?php else : ?>
+						<p class="description">این گزینه فقط برای همین کاربر ذخیره می‌شود و به سایر کاربران هم‌نقش او دسترسی نمی‌دهد.</p>
+					<?php endif; ?>
+					<?php wp_nonce_field( 'company_reports_access_' . $user->ID, 'company_reports_access_nonce' ); ?>
+				</td>
+			</tr>
+		</table>
+		<?php
+	}
+
+	public static function save_reports_access_field( $user_id ) {
+		$user_id = absint( $user_id );
+		if (
+			! $user_id ||
+			! current_user_can( 'manage_options' ) ||
+			! current_user_can( 'edit_user', $user_id ) ||
+			! isset( $_POST['company_reports_access_nonce'] ) ||
+			! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['company_reports_access_nonce'] ) ), 'company_reports_access_' . $user_id )
+		) {
+			return;
+		}
+		$user = get_user_by( 'id', $user_id );
+		if ( ! $user instanceof WP_User || array_intersect( array( 'administrator', 'acc_manager', 'shop_manager' ), (array) $user->roles ) ) {
+			return;
+		}
+		if ( ! empty( $_POST['company_view_order_reports'] ) ) {
+			$user->add_cap( self::REPORTS_CAP );
+		} else {
+			$user->remove_cap( self::REPORTS_CAP );
+		}
 	}
 
 	public static function allowed_statuses( WC_Order $order ) {
