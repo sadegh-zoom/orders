@@ -327,6 +327,7 @@ final class Company_Central_Orders_REST_Controller extends WP_REST_Controller {
 			array( 'needles'=>array( 'تیپاکس', 'tipax', 'ماهکس', 'mahex' ), 'value'=>'group:tipax-mahex', 'label'=>'تیپاکس / ماهکس' ),
 			array( 'needles'=>array( 'پیک', 'موتوری', 'courier' ), 'value'=>'group:courier', 'label'=>'پیک موتوری' ),
 			array( 'needles'=>array( 'پست', 'پیشتاز', 'post', 'pishtaz' ), 'value'=>'group:post', 'label'=>'پست' ),
+			array( 'needles'=>array( 'عادی' ), 'value'=>'group:normal', 'label'=>'عادی' ),
 		);
 	}
 
@@ -803,8 +804,12 @@ final class Company_Central_Orders_REST_Controller extends WP_REST_Controller {
 
 	private function prepare_order( WC_Order $order ) {
 		$source      = $this->source_data( $order );
+		$gateway_type_value = $order->get_meta( '_zb_payment_gateway_type', true );
+		$gateway_type = is_scalar( $gateway_type_value ) ? sanitize_key( (string) $gateway_type_value ) : '';
+		$gateway_type_labels = array( 'cash' => 'نقدی', 'installment' => 'قسطی' );
 		$items       = array();
 		$currency    = $order->get_currency();
+		$can_view_purchase_price = Company_Central_Orders_Access::current_user_is_administrator();
 		$format_money = function( $amount ) use ( $currency ) {
 			return $this->plain_text( wc_price( $amount, array( 'currency' => $currency ) ) );
 		};
@@ -814,7 +819,7 @@ final class Company_Central_Orders_REST_Controller extends WP_REST_Controller {
 			$subtotal = (float) $item->get_subtotal();
 			$total    = (float) $item->get_total();
 			$assigned_seller = sanitize_text_field( $item->get_meta( '_company_assigned_seller_name', true ) );
-			$items[]  = array(
+			$item_data = array(
 				'id'          => $item->get_id(),
 				'name'        => $item->get_name(),
 				'sku'         => sanitize_text_field( $item->get_meta( '_company_source_sku', true ) ) ?: '—',
@@ -828,6 +833,11 @@ final class Company_Central_Orders_REST_Controller extends WP_REST_Controller {
 				'taminStatus' => sanitize_key( $item->get_meta( '_company_tamin_status', true ) ),
 				'needId'      => sanitize_text_field( $item->get_meta( '_company_tamin_need_id', true ) ),
 			);
+			if ( $can_view_purchase_price ) {
+				$purchase_price = $item->get_meta( '_zb_torob_purchase_price', true );
+				$item_data['purchasePrice'] = is_numeric( $purchase_price ) ? $format_money( (float) $purchase_price ) : null;
+			}
+			$items[] = $item_data;
 		}
 
 		$allowed_statuses = array();
@@ -859,6 +869,8 @@ final class Company_Central_Orders_REST_Controller extends WP_REST_Controller {
 			),
 			'payment'         => array(
 				'method'      => $order->get_payment_method_title() ?: 'تعیین نشده',
+				'type'        => isset( $gateway_type_labels[ $gateway_type ] ) ? $gateway_type : '',
+				'typeLabel'   => $gateway_type_labels[ $gateway_type ] ?? '',
 				'transaction' => $order->get_transaction_id() ?: '—',
 			),
 			'shipping'        => array(

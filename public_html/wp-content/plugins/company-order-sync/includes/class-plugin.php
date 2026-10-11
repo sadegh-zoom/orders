@@ -9,11 +9,17 @@ final class Company_Order_Sync_Plugin {
 	private static $instance;
 
 	public static function init() {
+		Company_Order_Sync_Environment_Guard::hooks();
 		add_action( 'before_woocommerce_init', array( __CLASS__, 'declare_hpos_compatibility' ) );
 		add_action( 'plugins_loaded', array( __CLASS__, 'boot' ) );
 	}
 
 	public static function activate() {
+		if ( Company_Order_Sync_Environment_Guard::blocked() ) {
+			return;
+		}
+		Company_Order_Sync_Replay_Store::install();
+		Company_Order_Sync_Product_Views::install();
 		self::schedule_cleanup();
 	}
 
@@ -35,6 +41,11 @@ final class Company_Order_Sync_Plugin {
 	}
 
 	public static function boot() {
+		// Do not bind workers, shutdown pushes, admin mutations or REST handlers
+		// on a cloned installation. Existing queued actions have no sync callbacks.
+		if ( Company_Order_Sync_Environment_Guard::blocked() ) {
+			return;
+		}
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			add_action( 'admin_notices', array( __CLASS__, 'woocommerce_missing_notice' ) );
 			return;
@@ -64,6 +75,7 @@ final class Company_Order_Sync_Plugin {
 		$status_audit = new Company_Order_Sync_Status_Audit();
 		$maintenance = new Company_Order_Sync_Retention_Maintenance();
 		$product_seller = new Company_Order_Sync_Product_Seller();
+		$product_views = new Company_Order_Sync_Product_Views();
 
 		$settings->hooks();
 		// Labels are read-only presentation data, needed even while workers pause.
@@ -81,7 +93,9 @@ final class Company_Order_Sync_Plugin {
 		$status_repair->hooks();
 		$status_audit->hooks();
 		$maintenance->hooks();
+		( new Company_Order_Sync_Payment_Gateway_Backfill() )->hooks();
 		$product_seller->hooks();
+		$product_views->hooks();
 
 		add_action( 'company_order_sync_cleanup_replay', array( 'Company_Order_Sync_Replay_Store', 'cleanup' ) );
 	}

@@ -6,6 +6,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class Company_Central_Orders_Delivery_Data {
 
+	public static function print_delivery_display( WC_Order $order ) {
+		if ( 'group:courier' !== self::shipping_group( $order ) ) {
+			return '';
+		}
+
+		$date = self::date_display( $order );
+		if ( ! $date || 'تعیین نشده' === $date ) {
+			return '';
+		}
+
+		$slot = self::time_slot_display( $order );
+		return $slot ? $date . '، ' . $slot : $date;
+	}
+
+	public static function print_customer_note( WC_Order $order ) {
+		$note = trim( (string) $order->get_customer_note() );
+		if ( ! $note || 'group:normal' !== self::shipping_group( $order ) ) {
+			return $note;
+		}
+
+		$normalized = strtr( $note, array( 'ي' => 'ی', 'ك' => 'ک' ) );
+		return false !== strpos( $normalized, 'کارمزد' ) ? '' : $note;
+	}
+
 	public static function display( WC_Order $order ) {
 		$date = self::date_display( $order );
 		$slot = self::time_slot_display( $order );
@@ -109,5 +133,32 @@ final class Company_Central_Orders_Delivery_Data {
 		}
 
 		return sanitize_text_field( $state );
+	}
+
+	private static function shipping_group( WC_Order $order ) {
+		$stored = sanitize_text_field( $order->get_meta( '_company_shipping_group', true ) );
+		if ( in_array( $stored, array( 'group:courier', 'group:normal', 'group:post', 'group:tipax-mahex' ), true ) ) {
+			return $stored;
+		}
+
+		$title = html_entity_decode( wp_strip_all_tags( (string) $order->get_shipping_method() ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+		$title = strtr( $title, array( 'ي' => 'ی', 'ك' => 'ک' ) );
+		$title = function_exists( 'mb_strtolower' ) ? mb_strtolower( $title, 'UTF-8' ) : strtolower( $title );
+		$groups = array(
+			'group:tipax-mahex' => array( 'تیپاکس', 'tipax', 'ماهکس', 'mahex' ),
+			'group:courier'     => array( 'پیک', 'موتوری', 'courier' ),
+			'group:post'        => array( 'پست', 'پیشتاز', 'post', 'pishtaz' ),
+			'group:normal'      => array( 'عادی' ),
+		);
+
+		foreach ( $groups as $group => $needles ) {
+			foreach ( $needles as $needle ) {
+				if ( false !== strpos( $title, $needle ) ) {
+					return $group;
+				}
+			}
+		}
+
+		return '';
 	}
 }

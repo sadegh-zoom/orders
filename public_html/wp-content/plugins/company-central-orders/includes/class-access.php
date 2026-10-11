@@ -9,6 +9,7 @@ final class Company_Central_Orders_Access {
 	const ROLE      = 'company_order_operator';
 	const CAP       = 'company_manage_orders';
 	const RETRY_CAP = 'company_retry_order_sync';
+	const REPORTS_CAP = 'company_view_order_reports';
 	const COMPANY_ROLES = array( 'administrator', 'acc_manager', 'digikala_admin', 'logistics', 'seller', 'shop_manager', 'customer_support' );
 
 	public static function activate() {
@@ -41,6 +42,11 @@ final class Company_Central_Orders_Access {
 		return current_user_can( self::CAP ) && ! current_user_can( 'manage_woocommerce' );
 	}
 
+	public static function current_user_is_administrator() {
+		$user = wp_get_current_user();
+		return $user instanceof WP_User && $user->exists() && in_array( 'administrator', (array) $user->roles, true );
+	}
+
 	public static function grant_company_role_caps( $allcaps, $caps, $args, $user ) {
 		if ( ! $user instanceof WP_User ) {
 			return $allcaps;
@@ -53,8 +59,56 @@ final class Company_Central_Orders_Access {
 		if ( array_intersect( array( 'administrator', 'shop_manager' ), $roles ) ) {
 			$allcaps[ self::RETRY_CAP ] = true;
 		}
-
 		return $allcaps;
+	}
+
+	public static function render_reports_access_field( $user ) {
+		if ( ! current_user_can( 'manage_options' ) || ! $user instanceof WP_User ) {
+			return;
+		}
+		$always_allowed = (bool) array_intersect( array( 'administrator', 'acc_manager', 'shop_manager' ), (array) $user->roles );
+		?>
+		<h2>دسترسی گزارش‌های سفارش</h2>
+		<table class="form-table" role="presentation">
+			<tr>
+				<th><label for="company_view_order_reports">مشاهده گزارش‌ها</label></th>
+				<td>
+					<label>
+						<input type="checkbox" id="company_view_order_reports" name="company_view_order_reports" value="1" <?php checked( $always_allowed || $user->has_cap( self::REPORTS_CAP ) ); ?> <?php disabled( $always_allowed ); ?>>
+						اجازه مشاهده داشبورد و داده‌های گزارش سفارش
+					</label>
+					<?php if ( $always_allowed ) : ?>
+						<p class="description">این دسترسی برای نقش مدیر، مدیر فروشگاه و حسابداری به‌صورت پیش‌فرض فعال است.</p>
+					<?php else : ?>
+						<p class="description">این گزینه فقط برای همین کاربر ذخیره می‌شود و به سایر کاربران هم‌نقش او دسترسی نمی‌دهد.</p>
+					<?php endif; ?>
+					<?php wp_nonce_field( 'company_reports_access_' . $user->ID, 'company_reports_access_nonce' ); ?>
+				</td>
+			</tr>
+		</table>
+		<?php
+	}
+
+	public static function save_reports_access_field( $user_id ) {
+		$user_id = absint( $user_id );
+		if (
+			! $user_id ||
+			! current_user_can( 'manage_options' ) ||
+			! current_user_can( 'edit_user', $user_id ) ||
+			! isset( $_POST['company_reports_access_nonce'] ) ||
+			! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['company_reports_access_nonce'] ) ), 'company_reports_access_' . $user_id )
+		) {
+			return;
+		}
+		$user = get_user_by( 'id', $user_id );
+		if ( ! $user instanceof WP_User || array_intersect( array( 'administrator', 'acc_manager', 'shop_manager' ), (array) $user->roles ) ) {
+			return;
+		}
+		if ( ! empty( $_POST['company_view_order_reports'] ) ) {
+			$user->add_cap( self::REPORTS_CAP );
+		} else {
+			$user->remove_cap( self::REPORTS_CAP );
+		}
 	}
 
 	public static function allowed_statuses( WC_Order $order ) {
@@ -292,17 +346,18 @@ final class Company_Central_Orders_Access {
 	}
 
 	private static function logistics_can_complete( WC_Order $order ) {
-		$allowed = array( '32', '33', '43' );
-		$blocked = array( '31', '40', '41' );
-		$text    = '';
+		$group = sanitize_text_field( $order->get_meta( '_company_shipping_group', true ) );
+		if ( in_array( $group, array( 'group:courier', 'group:normal', 'group:post', 'group:tipax-mahex' ), true ) ) {
+			return in_array( $group, array( 'group:normal', 'group:post', 'group:tipax-mahex' ), true );
+		}
+
+		$text = '';
 		foreach ( $order->get_shipping_methods() as $item ) {
-			$instance = method_exists( $item, 'get_instance_id' ) ? (string) $item->get_instance_id() : '';
-			if ( in_array( $instance, $blocked, true ) ) return false;
-			if ( in_array( $instance, $allowed, true ) ) return true;
 			$text .= ' ' . $item->get_method_id() . ' ' . $item->get_method_title() . ' ' . $item->get_name();
 		}
+		$text = strtr( $text, array( 'ي' => 'ی', 'ك' => 'ک' ) );
 		$text = function_exists( 'mb_strtolower' ) ? mb_strtolower( $text, 'UTF-8' ) : strtolower( $text );
 		if ( false !== strpos( $text, 'پیک' ) || false !== strpos( $text, 'موتوری' ) ) return false;
-		return false !== strpos( $text, 'پست' ) || false !== strpos( $text, 'پیشتاز' ) || false !== strpos( $text, 'تیپاکس' ) || false !== strpos( $text, 'tipax' );
+		return false !== strpos( $text, 'عادی' ) || false !== strpos( $text, 'پست' ) || false !== strpos( $text, 'پیشتاز' ) || false !== strpos( $text, 'تیپاکس' ) || false !== strpos( $text, 'tipax' ) || false !== strpos( $text, 'ماهکس' ) || false !== strpos( $text, 'mahex' );
 	}
 }

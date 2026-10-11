@@ -77,6 +77,13 @@ final class Company_Central_Orders_Admin_Page {
 				COMPANY_CENTRAL_ORDERS_VERSION,
 				true
 			);
+			wp_enqueue_script(
+				'company-central-orders-reports-nav',
+				plugins_url( 'assets/reports-nav.js', COMPANY_CENTRAL_ORDERS_FILE ),
+				array( 'company-central-orders-app' ),
+				COMPANY_CENTRAL_ORDERS_VERSION,
+				true
+			);
 			wp_localize_script(
 				'company-central-orders-app',
 				'CCO_APP_CONFIG',
@@ -93,6 +100,7 @@ final class Company_Central_Orders_Admin_Page {
 					'payments'    => $this->payments_for_app(),
 					'agents'      => $this->agents_for_app(),
 					'agentLocked' => Company_Central_Orders_Access::current_user_is_agent(),
+					'showPurchasePrice' => Company_Central_Orders_Access::current_user_is_administrator(),
 				)
 			);
 		}
@@ -574,9 +582,19 @@ final class Company_Central_Orders_Admin_Page {
 	}
 
 	private function render_items( WC_Order $order ) {
-		echo '<section class="cco-card cco-items-card"><h2>اقلام سفارش</h2><table class="widefat striped"><thead><tr><th>محصول</th><th>SKU</th><th>تعداد</th><th>جمع</th></tr></thead><tbody>';
+		$can_view_purchase_price = Company_Central_Orders_Access::current_user_is_administrator();
+		echo '<section class="cco-card cco-items-card"><h2>اقلام سفارش</h2><table class="widefat striped"><thead><tr><th>محصول</th><th>SKU</th><th>تعداد</th>';
+		if ( $can_view_purchase_price ) {
+			echo '<th>قیمت خرید</th>';
+		}
+		echo '<th>جمع</th></tr></thead><tbody>';
 		foreach ( $order->get_items( 'line_item' ) as $item ) {
-			echo '<tr><td><strong>' . esc_html( $item->get_name() ) . '</strong></td><td dir="ltr">' . esc_html( $item->get_meta( '_company_source_sku', true ) ?: '—' ) . '</td><td>' . esc_html( $item->get_quantity() ) . '</td><td>' . wp_kses_post( wc_price( $item->get_total() + $item->get_total_tax(), array( 'currency' => $order->get_currency() ) ) ) . '</td></tr>';
+			echo '<tr><td><strong>' . esc_html( $item->get_name() ) . '</strong></td><td dir="ltr">' . esc_html( $item->get_meta( '_company_source_sku', true ) ?: '—' ) . '</td><td>' . esc_html( $item->get_quantity() ) . '</td>';
+			if ( $can_view_purchase_price ) {
+				$purchase_price = $item->get_meta( '_zb_torob_purchase_price', true );
+				echo '<td>' . ( is_numeric( $purchase_price ) ? wp_kses_post( wc_price( (float) $purchase_price, array( 'currency' => $order->get_currency() ) ) ) : '—' ) . '</td>';
+			}
+			echo '<td>' . wp_kses_post( wc_price( $item->get_total() + $item->get_total_tax(), array( 'currency' => $order->get_currency() ) ) ) . '</td></tr>';
 		}
 		echo '</tbody></table></section>';
 	}

@@ -43,12 +43,14 @@ final class Company_Central_Orders_Plugin {
 		$print = new Company_Central_Orders_Print_Controller();
 		$export = new Company_Central_Orders_Bulk_Export_Controller();
 		$settings = new Company_Central_Orders_Print_Settings();
+		$reports = new Company_Central_Orders_Reports();
 		$admin->hooks();
 		$rest->hooks();
 		$email->hooks();
 		$print->hooks();
 		$export->hooks();
 		$settings->hooks();
+		$reports->hooks();
 		add_filter( 'user_has_cap', array( 'Company_Central_Orders_Access', 'grant_company_role_caps' ), 20, 4 );
 		add_filter( 'user_has_cap', array( 'Company_Central_Orders_Access', 'restrict_user_management_caps' ), 100, 4 );
 		add_filter( 'map_meta_cap', array( 'Company_Central_Orders_Access', 'restrict_user_meta_caps' ), 100, 4 );
