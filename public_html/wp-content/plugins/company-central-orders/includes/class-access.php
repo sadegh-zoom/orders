@@ -42,6 +42,11 @@ final class Company_Central_Orders_Access {
 		return current_user_can( self::CAP ) && ! current_user_can( 'manage_woocommerce' );
 	}
 
+	public static function current_user_is_administrator() {
+		$user = wp_get_current_user();
+		return $user instanceof WP_User && $user->exists() && in_array( 'administrator', (array) $user->roles, true );
+	}
+
 	public static function grant_company_role_caps( $allcaps, $caps, $args, $user ) {
 		if ( ! $user instanceof WP_User ) {
 			return $allcaps;
@@ -341,17 +346,18 @@ final class Company_Central_Orders_Access {
 	}
 
 	private static function logistics_can_complete( WC_Order $order ) {
-		$allowed = array( '32', '33', '43' );
-		$blocked = array( '31', '40', '41' );
-		$text    = '';
+		$group = sanitize_text_field( $order->get_meta( '_company_shipping_group', true ) );
+		if ( in_array( $group, array( 'group:courier', 'group:normal', 'group:post', 'group:tipax-mahex' ), true ) ) {
+			return in_array( $group, array( 'group:normal', 'group:post', 'group:tipax-mahex' ), true );
+		}
+
+		$text = '';
 		foreach ( $order->get_shipping_methods() as $item ) {
-			$instance = method_exists( $item, 'get_instance_id' ) ? (string) $item->get_instance_id() : '';
-			if ( in_array( $instance, $blocked, true ) ) return false;
-			if ( in_array( $instance, $allowed, true ) ) return true;
 			$text .= ' ' . $item->get_method_id() . ' ' . $item->get_method_title() . ' ' . $item->get_name();
 		}
+		$text = strtr( $text, array( 'ي' => 'ی', 'ك' => 'ک' ) );
 		$text = function_exists( 'mb_strtolower' ) ? mb_strtolower( $text, 'UTF-8' ) : strtolower( $text );
 		if ( false !== strpos( $text, 'پیک' ) || false !== strpos( $text, 'موتوری' ) ) return false;
-		return false !== strpos( $text, 'پست' ) || false !== strpos( $text, 'پیشتاز' ) || false !== strpos( $text, 'تیپاکس' ) || false !== strpos( $text, 'tipax' );
+		return false !== strpos( $text, 'عادی' ) || false !== strpos( $text, 'پست' ) || false !== strpos( $text, 'پیشتاز' ) || false !== strpos( $text, 'تیپاکس' ) || false !== strpos( $text, 'tipax' ) || false !== strpos( $text, 'ماهکس' ) || false !== strpos( $text, 'mahex' );
 	}
 }

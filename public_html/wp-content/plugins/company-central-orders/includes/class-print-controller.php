@@ -83,11 +83,14 @@ final class Company_Central_Orders_Print_Controller {
 	private function document_start( $document, $count ) {
 		$titles = array( 'invoice' => 'فاکتور فروش', 'delivery' => 'برگه تحویل', 'label' => 'لیبل ارسال', 'warehouse' => 'لیست تجمیعی انبار' );
 		$page   = 'label' === $document ? 'A5 landscape' : ( 'invoice' === $document ? 'A5 portrait' : 'A4 landscape' );
+		$print_css_version     = filemtime( COMPANY_CENTRAL_ORDERS_PATH . 'assets/print.css' ) ?: COMPANY_CENTRAL_ORDERS_VERSION;
+		$pars_css_version      = filemtime( COMPANY_CENTRAL_ORDERS_PATH . 'assets/pars-factor.css' ) ?: COMPANY_CENTRAL_ORDERS_VERSION;
+		$page_size_css_version = filemtime( COMPANY_CENTRAL_ORDERS_PATH . 'assets/print-page-size.css' ) ?: COMPANY_CENTRAL_ORDERS_VERSION;
 		echo '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="' . esc_attr( get_option( 'blog_charset' ) ) . '"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' . esc_html( $titles[ $document ] . ' · ' . $count . ' سفارش' ) . '</title>';
 		echo '<style>@media print{@page{size:' . esc_attr( $page ) . ';margin:4mm}}</style>';
-		echo '<link rel="stylesheet" href="' . esc_url( plugins_url( 'assets/print.css', COMPANY_CENTRAL_ORDERS_FILE ) ) . '?ver=' . esc_attr( COMPANY_CENTRAL_ORDERS_VERSION ) . '">';
-		echo '<link rel="stylesheet" href="' . esc_url( plugins_url( 'assets/pars-factor.css', COMPANY_CENTRAL_ORDERS_FILE ) ) . '?ver=' . esc_attr( COMPANY_CENTRAL_ORDERS_VERSION ) . '">';
-		echo '<link rel="stylesheet" href="' . esc_url( plugins_url( 'assets/print-page-size.css', COMPANY_CENTRAL_ORDERS_FILE ) ) . '?ver=' . esc_attr( COMPANY_CENTRAL_ORDERS_VERSION ) . '"></head><body class="cco-print cco-print-' . esc_attr( $document ) . '"><main>';
+		echo '<link rel="stylesheet" href="' . esc_url( plugins_url( 'assets/print.css', COMPANY_CENTRAL_ORDERS_FILE ) ) . '?ver=' . esc_attr( $print_css_version ) . '">';
+		echo '<link rel="stylesheet" href="' . esc_url( plugins_url( 'assets/pars-factor.css', COMPANY_CENTRAL_ORDERS_FILE ) ) . '?ver=' . esc_attr( $pars_css_version ) . '">';
+		echo '<link rel="stylesheet" href="' . esc_url( plugins_url( 'assets/print-page-size.css', COMPANY_CENTRAL_ORDERS_FILE ) ) . '?ver=' . esc_attr( $page_size_css_version ) . '"></head><body class="cco-print cco-print-' . esc_attr( $document ) . '"><main>';
 		echo '<div class="cco-print-toolbar"><button type="button" onclick="window.print()">چاپ</button><button type="button" onclick="window.close()">بستن</button><span>' . esc_html( $count ) . ' سفارش</span></div>';
 	}
 

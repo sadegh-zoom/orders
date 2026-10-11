@@ -51,6 +51,24 @@ final class Company_Order_Sync_REST_Controller extends WP_REST_Controller {
 		if ( 'store' === Company_Order_Sync_Settings::mode() ) {
 			register_rest_route(
 				$this->namespace,
+				'/product-view',
+				array(
+					'methods'             => WP_REST_Server::CREATABLE,
+					'callback'            => array( $this, 'record_product_view' ),
+					'permission_callback' => '__return_true',
+				)
+			);
+			register_rest_route(
+				$this->namespace,
+				'/product-views',
+				array(
+					'methods'             => WP_REST_Server::CREATABLE,
+					'callback'            => array( $this, 'receive_product_views' ),
+					'permission_callback' => '__return_true',
+				)
+			);
+			register_rest_route(
+				$this->namespace,
 				'/snapshot',
 				array(
 					'methods'             => WP_REST_Server::CREATABLE,
@@ -128,6 +146,23 @@ final class Company_Order_Sync_REST_Controller extends WP_REST_Controller {
 				)
 			);
 		}
+	}
+
+	public function record_product_view( WP_REST_Request $request ) {
+		return ( new Company_Order_Sync_Product_Views() )->record( $request );
+	}
+
+	public function receive_product_views( WP_REST_Request $request ) {
+		$store_id = sanitize_key( Company_Order_Sync_Settings::get( 'store_id', '' ) );
+		$secret   = (string) Company_Order_Sync_Settings::get( 'store_inbound_secret', '' );
+		$auth     = Company_Order_Sync_Security::verify( $request, $store_id, $secret, 'central-to-store-product-views:' . $store_id );
+		if ( is_wp_error( $auth ) ) return $this->error_response( $auth );
+		$params = $request->get_json_params();
+		if ( ! is_array( $params ) || sanitize_key( $params['store_id'] ?? '' ) !== $store_id ) {
+			return $this->error_response( Company_Order_Sync_Security::error( 'invalid_payload', 'Product view payload does not match this store.', 400, $auth['request_id'] ) );
+		}
+		$result = ( new Company_Order_Sync_Product_Views() )->export( $request, $auth );
+		return is_wp_error( $result ) ? $this->error_response( $result, $auth['request_id'] ) : new WP_REST_Response( $result, 200 );
 	}
 
 	public function receive_snapshot( WP_REST_Request $request ) {

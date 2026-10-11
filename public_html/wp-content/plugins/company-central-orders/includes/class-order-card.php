@@ -34,6 +34,9 @@ final class Company_Central_Orders_Order_Card {
 		$billing  = $order->get_formatted_billing_address();
 		$shipping = $order->get_formatted_shipping_address();
 		$address  = $shipping ?: $billing;
+		$gateway_type = $order->get_meta( '_zb_payment_gateway_type', true );
+		$gateway_labels = array( 'cash' => 'نقدی', 'installment' => 'قسطی' );
+		$gateway_label = is_scalar( $gateway_type ) ? ( $gateway_labels[ (string) $gateway_type ] ?? '' ) : '';
 
 		echo '<section class="cco-order-main">';
 		echo '<div class="cco-customer-grid">';
@@ -41,6 +44,7 @@ final class Company_Central_Orders_Order_Card {
 		self::data_cell( 'شماره تماس', $order->get_billing_phone() ?: '—', true );
 		self::data_cell( 'ایمیل', $order->get_billing_email() ?: '—', true );
 		self::data_cell( 'روش پرداخت', $order->get_payment_method_title() ?: '—' );
+		self::data_cell( 'نوع درگاه', $gateway_label ?: '—' );
 		echo '<div class="cco-data-cell cco-data-cell--wide"><span>آدرس تحویل</span><strong class="cco-address-inline">' . ( $address ? wp_kses_post( $address ) : '—' ) . '</strong></div>';
 		echo '</div>';
 

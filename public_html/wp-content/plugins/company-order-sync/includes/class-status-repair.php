@@ -1002,6 +1002,7 @@ final class Company_Order_Sync_Status_Repair {
 				'edit_url'          => $order->get_edit_order_url(),
 				'status'            => $order->get_status(),
 				'line_item_count'   => count( $order->get_items( 'line_item' ) ),
+				'payment_gateway_type' => Company_Order_Sync_Order_Serializer::payment_gateway_type( $order ),
 				'sync_revision'     => (string) max( (int) $order->get_meta( '_company_sync_revision', true ), $modified instanceof WC_DateTime ? $modified->getTimestamp() * 1000000 : 0 ),
 				'date_created_gmt'  => $created instanceof WC_DateTime ? gmdate( 'c', $created->getTimestamp() ) : '',
 				'date_modified_gmt' => $modified instanceof WC_DateTime ? gmdate( 'c', $modified->getTimestamp() ) : '',

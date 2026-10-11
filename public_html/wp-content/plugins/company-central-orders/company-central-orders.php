@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Company Central Orders
  * Description: پنل داخلی مدیریت سفارش‌های همگام‌شده WooCommerce در سایت مرکزی.
- * Version: 0.17.9
+ * Version: 0.21.14
  * Author: Internal
  * Requires at least: 6.5
  * Requires PHP: 8.0
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'COMPANY_CENTRAL_ORDERS_VERSION', '0.17.9' );
+define( 'COMPANY_CENTRAL_ORDERS_VERSION', '0.21.14' );
 define( 'COMPANY_CENTRAL_ORDERS_FILE', __FILE__ );
 define( 'COMPANY_CENTRAL_ORDERS_PATH', plugin_dir_path( __FILE__ ) );
 

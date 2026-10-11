@@ -19,6 +19,7 @@ final class Company_Order_Sync_Plugin {
 			return;
 		}
 		Company_Order_Sync_Replay_Store::install();
+		Company_Order_Sync_Product_Views::install();
 		self::schedule_cleanup();
 	}
 
@@ -74,6 +75,7 @@ final class Company_Order_Sync_Plugin {
 		$status_audit = new Company_Order_Sync_Status_Audit();
 		$maintenance = new Company_Order_Sync_Retention_Maintenance();
 		$product_seller = new Company_Order_Sync_Product_Seller();
+		$product_views = new Company_Order_Sync_Product_Views();
 
 		$settings->hooks();
 		// Labels are read-only presentation data, needed even while workers pause.
@@ -91,7 +93,9 @@ final class Company_Order_Sync_Plugin {
 		$status_repair->hooks();
 		$status_audit->hooks();
 		$maintenance->hooks();
+		( new Company_Order_Sync_Payment_Gateway_Backfill() )->hooks();
 		$product_seller->hooks();
+		$product_views->hooks();
 
 		add_action( 'company_order_sync_cleanup_replay', array( 'Company_Order_Sync_Replay_Store', 'cleanup' ) );
 	}

@@ -26,6 +26,7 @@ final class Company_Order_Sync_Order_Serializer {
 			'total_tax'            => $order->get_total_tax(),
 			'payment_method'       => $order->get_payment_method(),
 			'payment_method_title' => $order->get_payment_method_title(),
+			'payment_gateway_type' => self::payment_gateway_type( $order ),
 			'transaction_id'       => $order->get_transaction_id(),
 			'customer_note'        => $order->get_customer_note(),
 			'billing'              => $this->address( $order, 'billing' ),
@@ -41,6 +42,12 @@ final class Company_Order_Sync_Order_Serializer {
 			'coupon_lines'         => $this->coupon_lines( $order ),
 			'notes'                => $this->notes( $order ),
 		);
+	}
+
+	public static function payment_gateway_type( WC_Order $order ) {
+		$value  = $order->get_meta( '_zb_payment_gateway_type', true );
+		$stored = is_scalar( $value ) ? sanitize_key( (string) $value ) : '';
+		return in_array( $stored, array( 'cash', 'installment' ), true ) ? $stored : '';
 	}
 
 	private function sync_revision( WC_Order $order ) {
@@ -149,10 +156,31 @@ final class Company_Order_Sync_Order_Serializer {
 				'assigned_seller_id'   => absint( $seller['id'] ?? 0 ),
 				'assigned_seller_name' => sanitize_text_field( $seller['name'] ?? '' ),
 				'assigned_seller_login' => sanitize_user( $seller['login'] ?? '', false ),
+				'_zb_torob_purchase_price' => $this->line_item_meta( $item, '_zb_torob_purchase_price' ),
+				'_zb_torob_purchase_price_updated_at' => $this->line_item_meta( $item, '_zb_torob_purchase_price_updated_at' ),
+				'order_bump'   => $this->is_order_bump_item( $item, $order ),
 			);
 		}
 
 		return $data;
+	}
+
+	private function line_item_meta( WC_Order_Item_Product $item, $key ) {
+		$value = $item->get_meta( $key, true );
+		return is_scalar( $value ) ? sanitize_text_field( (string) $value ) : '';
+	}
+
+	private function is_order_bump_item( WC_Order_Item_Product $item, WC_Order $order ) {
+		$detected = false;
+		foreach ( $item->get_meta_data() as $meta ) {
+			$key = isset( $meta->key ) ? (string) $meta->key : '';
+			if ( preg_match( '/bump|wfob/i', $key ) ) {
+				$detected = true;
+				break;
+			}
+		}
+
+		return (bool) apply_filters( 'company_order_sync_is_order_bump_line_item', $detected, $item, $order );
 	}
 
 	private function shipping_lines( WC_Order $order ) {

@@ -5,6 +5,8 @@ $created       = $order->get_date_created();
 $customer_name = $order->get_formatted_billing_full_name() ?: 'بدون نام';
 $customer_addr = Company_Central_Orders_Delivery_Data::formatted_address( $order );
 $state         = Company_Central_Orders_Delivery_Data::state_name( $order );
+$delivery      = Company_Central_Orders_Delivery_Data::print_delivery_display( $order );
+$customer_note = Company_Central_Orders_Delivery_Data::print_customer_note( $order );
 $is_zoombazar  = 'site1' === $source['store_id'];
 $is_smartpishro = 'site2' === $source['store_id'];
 $logo_url      = $profile['logo_url'];
@@ -40,9 +42,9 @@ foreach ( $order->get_items( 'fee' ) as $fee ) {
 				<tr class="head-dates grye"><th colspan="3" class="alin-right">روش پرداخت: <?php echo esc_html( $order->get_payment_method_title() ?: '—' ); ?></th><th>تخفیف</th><th><?php echo wp_kses_post( wc_price( $order->get_discount_total(), array( 'currency' => $order->get_currency() ) ) ); ?></th></tr>
 				<tr class="head-dates grye"><th colspan="3" class="alin-right">روش ارسال: <?php echo esc_html( $order->get_shipping_method() ?: '—' ); ?></th><th>هزینه ارسال</th><th><?php echo wp_kses_post( wc_price( $order->get_shipping_total(), array( 'currency' => $order->get_currency() ) ) ); ?></th></tr>
 				<?php if ( $installment_fee > 0 ) : ?><tr class="head-dates grye"><th colspan="3" class="alin-right">هزینه مربوط به روش پرداخت اقساطی</th><th>افزوده بابت اقساط</th><th><?php echo wp_kses_post( wc_price( $installment_fee, array( 'currency' => $order->get_currency() ) ) ); ?></th></tr><?php endif; ?>
-				<tr class="head-dates grye delivery-row"><th colspan="3" class="alin-right">تاریخ تحویل: <?php echo esc_html( Company_Central_Orders_Delivery_Data::display( $order ) ); ?></th><th>مبلغ قابل پرداخت</th><th><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></th></tr>
+				<tr class="head-dates grye delivery-row"><th colspan="3" class="alin-right"><?php if ( $delivery ) : ?>تاریخ تحویل: <?php echo esc_html( $delivery ); ?><?php endif; ?></th><th>مبلغ قابل پرداخت</th><th><?php echo wp_kses_post( $order->get_formatted_order_total() ); ?></th></tr>
 			</tbody></table>
-			<?php if ( $order->get_customer_note() ) : ?><div class="factor-note"><strong>یادداشت مشتری:</strong> <?php echo esc_html( $order->get_customer_note() ); ?></div><?php endif; ?>
+			<?php if ( $customer_note ) : ?><div class="factor-note"><strong>یادداشت مشتری:</strong> <?php echo esc_html( $customer_note ); ?></div><?php endif; ?>
 			<div class="factor-thanks">لبخند رضایتتان را به دنیا نمی‌دهیم</div>
 		</div></section></div>
 	</div>

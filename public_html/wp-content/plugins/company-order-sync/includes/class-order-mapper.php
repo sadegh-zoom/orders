@@ -188,11 +188,23 @@ final class Company_Order_Sync_Order_Mapper {
 		$items_match = count( $source_lines ) === count( $central_lines )
 			&& count( array_unique( array_filter( $central_source_ids ) ) ) === count( $central_source_ids )
 			&& $source_ids === $central_source_ids;
+		$gateway_type_value = $payload['payment_gateway_type'] ?? '';
+		$incoming_gateway_type = is_scalar( $gateway_type_value ) ? sanitize_key( (string) $gateway_type_value ) : '';
+		$central_gateway_type = $order->get_meta( '_zb_payment_gateway_type', true );
+		if ( in_array( $incoming_gateway_type, array( 'cash', 'installment' ), true ) ) {
+			$gateway_type_matches = $incoming_gateway_type === $central_gateway_type;
+		} else {
+			$method_value = $payload['payment_method'] ?? '';
+			$method = is_scalar( $method_value ) ? (string) $method_value : '';
+			$gateway_type_matches = in_array( $central_gateway_type, array( 'cash', 'installment' ), true )
+				|| ! Company_Order_Sync_Payment_Gateway_Backfill::type_for_method( $method );
+		}
 		return $incoming_revision > 0
 			&& $incoming_revision === $current_revision
 			&& ! sanitize_key( $order->get_meta( '_company_pending_outbound_status', true ) )
 			&& $order->get_status() === sanitize_key( $payload['status'] ?? '' )
-			&& $items_match;
+			&& $items_match
+			&& $gateway_type_matches;
 	}
 
 	public function sync_source_status( $store_id, array $payload, $request_id, $force = false ) {
@@ -516,6 +528,16 @@ final class Company_Order_Sync_Order_Mapper {
 		$order->set_total( wc_format_decimal( $data['total'] ?? 0 ) );
 		$order->set_payment_method( sanitize_text_field( $data['payment_method'] ?? '' ) );
 		$order->set_payment_method_title( sanitize_text_field( $data['payment_method_title'] ?? '' ) );
+		$gateway_type_value = $data['payment_gateway_type'] ?? '';
+		$payment_gateway_type = is_scalar( $gateway_type_value ) ? sanitize_key( (string) $gateway_type_value ) : '';
+		if ( in_array( $payment_gateway_type, array( 'cash', 'installment' ), true ) ) {
+			$order->update_meta_data( '_zb_payment_gateway_type', $payment_gateway_type );
+		} elseif ( ! in_array( $order->get_meta( '_zb_payment_gateway_type', true ), array( 'cash', 'installment' ), true ) ) {
+			$payment_gateway_type = Company_Order_Sync_Payment_Gateway_Backfill::type_for_method( $order->get_payment_method() );
+			if ( $payment_gateway_type ) {
+				$order->update_meta_data( '_zb_payment_gateway_type', $payment_gateway_type );
+			}
+		}
 		$order->set_transaction_id( sanitize_text_field( $data['transaction_id'] ?? '' ) );
 		$order->set_customer_note( sanitize_textarea_field( $data['customer_note'] ?? '' ) );
 
@@ -549,6 +571,7 @@ final class Company_Order_Sync_Order_Mapper {
 			'group:tipax-mahex' => array( 'تیپاکس', 'tipax', 'ماهکس', 'mahex' ),
 			'group:courier'     => array( 'پیک', 'موتوری', 'courier' ),
 			'group:post'        => array( 'پست', 'پیشتاز', 'post', 'pishtaz' ),
+			'group:normal'      => array( 'عادی' ),
 		);
 		foreach ( $groups as $value=>$needles ) {
 			foreach ( $needles as $needle ) {
@@ -633,6 +656,9 @@ final class Company_Order_Sync_Order_Mapper {
 			$item->update_meta_data( '_company_source_product_id', absint( $source['product_id'] ?? 0 ) );
 			$item->update_meta_data( '_company_source_variation_id', absint( $source['variation_id'] ?? 0 ) );
 			$item->update_meta_data( '_company_source_sku', sanitize_text_field( $source['sku'] ?? '' ) );
+			$this->sync_torob_purchase_meta( $item, $source );
+			$item->update_meta_data( '_company_source_is_order_bump', ! empty( $source['order_bump'] ) ? 'yes' : 'no' );
+			$item->update_meta_data( '_company_source_order_bump_synced', 'yes' );
 			$seller_id   = absint( $source['assigned_seller_id'] ?? 0 );
 			$seller_name = sanitize_text_field( $source['assigned_seller_name'] ?? '' );
 			$seller_login = sanitize_user( $source['assigned_seller_login'] ?? '', false );
@@ -687,6 +713,38 @@ final class Company_Order_Sync_Order_Mapper {
 			$item->set_discount( wc_format_decimal( $source['discount'] ?? 0 ) );
 			$item->set_discount_tax( wc_format_decimal( $source['discount_tax'] ?? 0 ) );
 			$order->add_item( $item );
+		}
+	}
+
+	private function sync_torob_purchase_meta( WC_Order_Item_Product $item, array $source ) {
+		$meta_keys = array(
+			'_zb_torob_purchase_price',
+			'_zb_torob_purchase_price_updated_at',
+		);
+
+		foreach ( $meta_keys as $meta_key ) {
+			// Keep existing data when receiving a payload from an older source plugin.
+			if ( ! array_key_exists( $meta_key, $source ) ) {
+				continue;
+			}
+
+			$value = $source[ $meta_key ];
+			if ( ! is_scalar( $value ) || '' === trim( (string) $value ) ) {
+				$item->delete_meta_data( $meta_key );
+				continue;
+			}
+
+			if ( '_zb_torob_purchase_price' === $meta_key ) {
+				$value = wc_format_decimal( (string) $value );
+				if ( '' === $value || ! is_numeric( $value ) ) {
+					$item->delete_meta_data( $meta_key );
+					continue;
+				}
+			} else {
+				$value = sanitize_text_field( (string) $value );
+			}
+
+			$item->update_meta_data( $meta_key, $value );
 		}
 	}
 

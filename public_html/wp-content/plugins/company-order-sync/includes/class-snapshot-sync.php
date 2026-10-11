@@ -449,7 +449,12 @@ final class Company_Order_Sync_Snapshot_Sync {
 			$status_differs = $order instanceof WC_Order && sanitize_key( $order->get_status() ) !== sanitize_key( $record['status'] ?? '' );
 			$item_count_differs = $order instanceof WC_Order && isset( $record['line_item_count'] )
 				&& count( $order->get_items( 'line_item' ) ) !== absint( $record['line_item_count'] );
-			if ( ! $order || ! $source_revision || ! $central_revision || $source_revision > $central_revision || $status_differs || $item_count_differs ) {
+			$gateway_type_value = $record['payment_gateway_type'] ?? '';
+			$gateway_type = is_scalar( $gateway_type_value ) ? sanitize_key( (string) $gateway_type_value ) : '';
+			$gateway_type_differs = $order instanceof WC_Order
+				&& in_array( $gateway_type, array( 'cash', 'installment' ), true )
+				&& $gateway_type !== $order->get_meta( '_zb_payment_gateway_type', true );
+			if ( ! $order || ! $source_revision || ! $central_revision || $source_revision > $central_revision || $status_differs || $item_count_differs || $gateway_type_differs ) {
 				$needed_ids[] = $source_id;
 			}
 		}

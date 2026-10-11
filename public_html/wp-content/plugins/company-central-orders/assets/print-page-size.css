@@ -18,3 +18,36 @@
   .cco-pars-label .order-label{max-height:none!important}
   .cco-print-toolbar{display:none!important}
 }
+
+/* Fill the complete printable area of an A5 landscape sheet. */
+.cco-print-label main{width:210mm;padding:4mm}
+.cco-pars-label{width:100%;height:140mm;min-height:140mm;padding:0}
+.cco-pars-label .min-factor,
+.cco-pars-label .pars-factor-main,
+.cco-pars-label .prk-label,
+.cco-pars-label .order-label{height:100%}
+.cco-pars-label .table-label{height:100%;table-layout:fixed}
+.cco-pars-label .table-label tr:first-child{height:auto}
+.cco-pars-label .table-label tr:last-child{height:18mm}
+.cco-pars-label .label-shoper{min-height:0;margin:4mm}
+
+/* Larger print type for addresses and operational details. */
+.cco-pars-label .label-shoper span{font-size:12pt;line-height:1.8;margin:1.6mm 0}
+.cco-pars-label .label-shoper h2{font-size:15pt;margin:3.5mm 0}
+.cco-pars-label .label-shoper .label-logo img{max-height:16mm;max-width:52mm}
+.cco-pars-label .label-shoper span.barcode img{max-width:48mm;height:12mm}
+.cco-pars-label .label-shoper span.barcode b{font-size:13pt}
+.cco-pars-label .label-orders .flex-labels{height:100%;padding:2mm 3mm;display:flex;flex-direction:column;align-items:stretch;justify-content:center}
+.cco-pars-label .label-orders .label-meta-row{display:flex;align-items:center;justify-content:flex-start;text-align:right;width:100%}
+.cco-pars-label .label-orders .label-meta-row>span{font-size:10.5pt;line-height:1.6;margin:.3mm 0 .3mm 3mm;border-left:1px solid #777;padding-left:3mm}
+.cco-pars-label .label-orders .label-meta-row>span:last-child{border-left:0}
+.cco-pars-label .label-orders .label-meta-row .woocommerce-Price-amount,
+.cco-pars-label .label-orders .label-meta-row .woocommerce-Price-currencySymbol{margin:0;border:0;padding:0;font-size:inherit;color:inherit}
+.cco-pars-label .label-orders .label-summary-row{border-top:1px solid #bbb;padding-top:.5mm}
+.cco-pars-label .label-orders .label-order-id{margin-right:0!important;font-weight:700}
+
+@media print{
+  body.cco-print-label .cco-print-page{width:100%!important;max-width:100%!important;height:140mm!important;min-height:140mm!important;margin:0!important;padding:0!important;overflow:hidden!important}
+  body.cco-print-label .cco-pars-label{width:100%!important;height:140mm!important;min-height:140mm!important;padding:0!important}
+  body.cco-print-label .cco-pars-label .order-label{max-width:none;max-height:none}
+}
